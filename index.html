@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Nathan Horville</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -27,27 +27,28 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: white;
-            padding: 0;
+            background: #f5f5f5;
+            padding: 20px;
             line-height: 1.4;
         }
 
         .container {
             width: 210mm;
-            height: auto;
-            min-height: 297mm;
             margin: 0 auto;
             background: white;
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: row;
         }
 
         /* Sidebar */
         .sidebar {
+            width: 240px;
+            min-width: 240px;
             background: var(--primary);
             color: white;
             padding: 30px 25px;
+            flex-shrink: 0;
         }
 
         .profile-section {
@@ -91,7 +92,6 @@
         .contact-item a {
             color: white;
             text-decoration: underline;
-            transition: opacity 0.3s ease;
         }
 
         .contact-item a:hover {
@@ -120,7 +120,8 @@
         }
 
         .skills-grid {
-            display: grid;
+            display: flex;
+            flex-direction: column;
             gap: 10px;
         }
 
@@ -148,6 +149,7 @@
 
         /* Main Content */
         .main-content {
+            flex: 1;
             padding: 30px 35px;
             background: white;
         }
@@ -204,6 +206,7 @@
             background: var(--accent);
             border-radius: 50%;
             border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--gray-light);
         }
 
         .experience-header {
@@ -212,6 +215,7 @@
             align-items: baseline;
             margin-bottom: 4px;
             flex-wrap: wrap;
+            gap: 8px;
         }
 
         .experience-title {
@@ -306,13 +310,23 @@
             .container {
                 box-shadow: none;
                 width: 210mm;
-                height: 297mm;
-                max-height: 297mm;
-                overflow: hidden;
             }
             * {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            .container {
+                width: 100%;
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
             }
         }
     </style>
@@ -338,11 +352,8 @@
                     <span>07 61 70 29 23</span>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-icon">📝</span>
-                    <span><a href="mailto:nathanhor44@gmail.com?subject=Contact">M'écrire</a></span>
-                </div>
-                
-                    
+                    <span class="contact-icon">✉️</span>
+                    <span><a href="mailto:nathanhor44@gmail.com">M'écrire</a></span>
                 </div>
             </div>
 
@@ -378,17 +389,17 @@
         <!-- Main Content -->
         <main class="main-content">
             <header class="header">
-                <h1 class="main-title">Lycée Professionnel CIEL</h1>
+                <h1 class="main-title">Lycéen Professionnel CIEL</h1>
                 <p class="tagline">Cybersécurité, Informatique et réseaux, Électronique</p>
             </header>
 
             <section class="content-section">
                 <h2 class="content-section-title">Expériences Professionnelles</h2>
+                
                 <div class="experience-item">
                     <div class="experience-header">
                         <h3 class="experience-title">Stage de Terminale - Alternance</h3>
                         <span class="experience-date">2025 - 2026</span>
-
                     </div>
                     <p class="experience-company">Neoviz Group</p>
                     <p class="experience-description">
@@ -430,7 +441,7 @@
 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3 class="experience-title">Stage d'observation - Alternance</h3>
+                        <h3 class="experience-title">Stage d'observation</h3>
                         <span class="experience-date">2022</span>
                     </div>
                     <p class="experience-company">Société LEGAVE - Plomberie, Pontchâteau 44</p>
@@ -476,9 +487,5 @@
             </section>
         </main>
     </div>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Ensure colors print correctly
-        window.onload = function() {
-            if (window.matchMedia) {
-                var mediaQueryList = window.matchMedia('print');
+</body>
+</html>
