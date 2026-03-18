@@ -9,17 +9,49 @@
        * { margin: 0; padding: 0; box-sizing: border-box; }
        :root { --primary: #2C3E50; --accent: #E74C3C; --dark: #1a1a1a; --gray: #555; --gray-light: #ecf0f1; }
        @page { size: A4 portrait; margin: 0; }
-       html, body { width: 210mm; height: 297mm; }
-       body { font-family: 'Outfit', sans-serif; background: white; line-height: 1.4; }
-       .container { width: 210mm; height: 297mm; margin: 0 auto; background: white; display: flex; flex-direction: row; overflow: hidden; }
-       .sidebar { width: 230px; min-width: 230px; background: var(--primary); color: white; padding: 28px 22px; flex-shrink: 0; }
-       .profile-section { margin-bottom: 22px; }
+       html { background: #888; }
+       body {
+         font-family: 'Outfit', sans-serif;
+         background: #888;
+         line-height: 1.4;
+         display: flex;
+         justify-content: center;
+         align-items: flex-start;
+         padding: 30px 0;
+         min-height: 100vh;
+       }
+       .container { width: 210mm; min-height: 297mm; margin: 0 auto; background: white; display: flex; flex-direction: row; overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+       .sidebar { width: 230px; min-width: 230px; background: var(--primary); color: white; padding: 28px 22px; flex-shrink: 0; display: flex; flex-direction: column; }
+       .profile-section { margin-bottom: 16px; }
        .photo-container { width: 110px; height: 130px; margin: 0 auto 13px; border-radius: 8px; overflow: hidden; border: 3px solid var(--accent); background: #3d5166; display: flex; align-items: center; justify-content: center; }
        .photo-container img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
        .photo-placeholder { color: rgba(255,255,255,0.4); font-size: 11px; text-align: center; padding: 10px; }
        .name { font-size: 22px; font-weight: 700; margin-bottom: 6px; border-bottom: 2px solid var(--accent); padding-bottom: 9px; text-transform: uppercase; letter-spacing: 0.5px; }
        .subtitle { font-size: 10.5px; opacity: 0.9; font-weight: 300; margin-bottom: 3px; }
-       .section-title { font-size: 13px; font-weight: 700; margin: 16px 0 9px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); }
+
+       /* Bloc présentation */
+       .presentation-block {
+         background: rgba(255,255,255,0.08);
+         border-left: 3px solid var(--accent);
+         border-radius: 0 6px 6px 0;
+         padding: 10px 11px;
+         margin: 12px 0 14px;
+         font-size: 9.5px;
+         line-height: 1.55;
+         opacity: 0.92;
+         font-weight: 300;
+       }
+       .presentation-block strong {
+         display: block;
+         font-size: 10px;
+         font-weight: 700;
+         color: var(--accent);
+         margin-bottom: 5px;
+         text-transform: uppercase;
+         letter-spacing: 0.4px;
+       }
+
+       .section-title { font-size: 13px; font-weight: 700; margin: 14px 0 9px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); }
        .contact-item { display: flex; align-items: flex-start; margin-bottom: 7px; font-size: 10.5px; line-height: 1.3; }
        .contact-item a { color: white; text-decoration: underline; }
        .contact-icon { margin-right: 8px; font-size: 12px; min-width: 16px; }
@@ -31,6 +63,11 @@
        .skill-name { margin-bottom: 3px; font-weight: 600; }
        .skill-bar { height: 5px; background: rgba(255,255,255,0.2); border-radius: 3px; overflow: hidden; }
        .skill-level { height: 100%; background: var(--accent); border-radius: 3px; }
+
+       /* Permis / véhicule */
+       .badge-row { display: flex; gap: 7px; margin-top: 4px; flex-wrap: wrap; }
+       .badge { background: rgba(231,76,60,0.18); border: 1px solid var(--accent); color: white; font-size: 9.5px; font-weight: 600; padding: 3px 9px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
+
        .main-content { flex: 1; padding: 28px 28px; background: white; }
        .header { margin-bottom: 18px; border-bottom: 3px solid var(--primary); padding-bottom: 13px; }
        .main-title { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 5px; letter-spacing: -0.5px; }
@@ -43,8 +80,10 @@
        .experience-title { font-size: 12px; font-weight: 700; color: var(--dark); }
        .experience-date { font-size: 9.5px; color: var(--accent); font-weight: 600; background: rgba(231, 76, 60, 0.1); padding: 2px 7px; border-radius: 10px; }
        .experience-company { font-size: 11px; color: var(--gray); margin-bottom: 3px; font-weight: 600; font-style: italic; }
-       .experience-duration { font-size: 9.5px; color: #888; margin-bottom: 3px; }
+       .experience-duration { font-size: 9.5px; color: #888; margin-bottom: 4px; }
        .experience-description { font-size: 9.5px; color: var(--gray); line-height: 1.5; text-align: justify; }
+       .experience-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+       .exp-tag { font-size: 8.5px; background: var(--gray-light); color: var(--gray); padding: 2px 7px; border-radius: 10px; font-weight: 600; }
        .education-item { background: var(--gray-light); padding: 10px; border-radius: 6px; border-left: 4px solid var(--accent); margin-bottom: 9px; }
        .education-title { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
        .education-school { font-size: 10.5px; color: var(--gray); margin-bottom: 3px; }
@@ -53,100 +92,157 @@
        .skills-column h4 { font-weight: 600; margin-bottom: 5px; color: var(--dark); font-size: 11px; }
        .skills-column ul { list-style: none; padding-left: 0; color: var(--gray); font-size: 9.5px; line-height: 1.8; }
        .skills-column li::before { content: '•'; color: var(--accent); font-weight: bold; margin-right: 5px; }
-       .format-badge { position: fixed; top: 10px; right: 10px; background: var(--primary); color: white; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: 'Outfit', sans-serif; }
-       @media print { .format-badge { display: none; } body { padding: 0; } * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
+       .format-badge { position: fixed; top: 10px; right: 10px; background: var(--primary); color: white; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: 'Outfit', sans-serif; z-index: 999; }
+       @media print {
+         .format-badge { display: none; }
+         html, body { background: white; padding: 0; display: block; }
+         .container { box-shadow: none; margin: 0; }
+         * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+       }
 </style>
 </head>
 <body>
 <div class="format-badge">Format A4 — 21 × 29,7 cm</div>
 <div class="container">
-<aside class="sidebar">
-  <div class="profile-section">
-    <div class="photo-container">
-      <!-- Remplace le src ci-dessous par le chemin de ta photo, ex: src="photo.jpg" -->
-      <img src="af7ef7a1-65b3-48f2-9f23-30cbbf4ab9e8.jpg" alt="Photo de Nathan Horville" />
-      <div class="photo-placeholder">📷<br>Ajoute ta photo ici</div>
+  <aside class="sidebar">
+    <div class="profile-section">
+      <div class="photo-container">
+        <img src="af7ef7a1-65b3-48f2-9f23-30cbbf4ab9e8.jpg" alt="Photo de Nathan Horville"/> 
+        <div class="photo-placeholder">
+      </div>
+      <h1 class="name">Nathan<br>Horville</h1>
+      <p class="subtitle">08/04/2008 (17 ans) | Terminale CIEL</p>
+      <p class="subtitle" style="margin-top: 3px;">Recherche alternance — BTS CIEL</p>
     </div>
-    <h1 class="name">Nathan<br>Horville</h1>
-    <p class="subtitle">08/04/2008 (17 ans) | Terminale CIEL</p>
-    <p class="subtitle" style="margin-top: 5px;">Recherche alternance</p>
-  </div>
-  <div>
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-item"><span class="contact-icon">📍</span><span>29 la Graffinière<br>44160 Besné, France</span></div>
-    <div class="contact-item"><span class="contact-icon">📞</span><span>07 61 70 29 23</span></div>
-    <div class="contact-item"><span class="contact-icon">✉️</span><span><a href="mailto:nathanhor44@gmail.com">nathanhor44@gmail.com</a></span></div>
-  </div>
-  <div>
-    <h2 class="section-title">Langues</h2>
-    <div class="skills-grid">
-      <div class="skill-item"><div class="skill-name">Français</div><div class="skill-bar"><div class="skill-level" style="width: 100%"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Anglais - Intermédiaire</div><div class="skill-bar"><div class="skill-level" style="width: 65%"></div></div></div>
+
+    <!-- BLOC PRÉSENTATION -->
+    <div class="presentation-block">
+      <strong>À propos de moi</strong>
+      Avec mon Bac Pro CIEL, je dispose d'une double compétence en informatique, réseaux et électronique.
+      Je recherche une alternance en BTS CIEL afin d'approfondir mes connaissances en systèmes, cybersécurité et développement.
+      Mon projet est de poursuivre vers un BTS puis un Bachelor dans le domaine de l'informatique.
+      Ma curiosité technique et mon esprit d'analyse me permettent de monter rapidement en compétences.
     </div>
-  </div>
-  <div>
-    <h2 class="section-title">Centres d'intérêts</h2>
-    <ul class="interests-list">
-      <li>Jeux vidéo en ligne</li>
-      <li>Montage informatique</li>
-      <li>Jeux d'échecs</li>
-      <li>Natation</li>
-    </ul>
-  </div>
-</aside>
-<main class="main-content">
-  <header class="header">
-    <h1 class="main-title">Recherche d'alternance - BTS CIEL</h1>
-    <p class="tagline">Cybersécurité, Informatique et réseaux, Électronique</p>
-  </header>
-  <section class="content-section">
-    <h2 class="content-section-title">Compétences Techniques</h2>
-    <div class="skills-content">
-      <div class="skills-column"><h4>Développement</h4><ul><li>Applications web (HTML/CSS/JS)</li><li>Python / Programmation</li><li>Bases de données (SQL)</li><li>Interfaces utilisateur</li></ul></div>
-      <div class="skills-column"><h4>Systèmes & Réseaux</h4><ul><li>Gestion de projets IT</li><li>Systèmes industriels (MES)</li><li>Administration systèmes</li><li>Réseaux informatiques</li></ul></div>
-      <div class="skills-column"><h4>Hardware & Support</h4><ul><li>Montage / réparation PC</li><li>Maintenance matérielle</li><li>Diagnostic logiciel</li><li>Support technique</li><li>Électronique</li></ul></div>
+
+    <div>
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-item"><span class="contact-icon">📍</span><span>29 la Graffinière<br>44160 Besné, France</span></div>
+      <div class="contact-item"><span class="contact-icon">📞</span><span>07 61 70 29 23</span></div>
+      <div class="contact-item"><span class="contact-icon">✉️</span><span><a href="mailto:nathanhor44@gmail.com">nathanhor44@gmail.com</a></span></div>
+
+      <!-- PERMIS + VÉHICULE -->
+      <div class="badge-row">
+        <span class="badge">🪪 Permis B</span>
+        <span class="badge">🚗 Véhiculé</span>
+      </div>
     </div>
-  </section>
-  <section class="content-section">
-    <h2 class="content-section-title">Formation</h2>
-    <div class="education-item">
-      <h3 class="education-title">Baccalauréat Professionnel CIEL</h3>
-      <p class="education-school">Cybersécurité, Informatique et réseaux, Électronique</p>
-      <p class="education-date">En cours - Terminale</p>
+
+    <div>
+      <h2 class="section-title">Langues</h2>
+      <div class="skills-grid">
+        <div class="skill-item"><div class="skill-name">Français</div><div class="skill-bar"><div class="skill-level" style="width: 100%"></div></div></div>
+        <div class="skill-item"><div class="skill-name">Anglais - Intermédiaire</div><div class="skill-bar"><div class="skill-level" style="width: 65%"></div></div></div>
+      </div>
     </div>
-    <div class="education-item">
-      <h3 class="education-title">Brevet des Collèges (DNB)</h3>
-      <p class="education-school">Diplôme National du Brevet</p>
-      <p class="education-date">Obtenu en 2023</p>
+
+    <div>
+      <h2 class="section-title">Centres d'intérêts</h2>
+      <ul class="interests-list">
+        <li>Jeux vidéo en ligne</li>
+        <li>Montage informatique</li>
+        <li>Jeux d'échecs</li>
+        <li>Natation</li>
+      </ul>
     </div>
-  </section>
-  <section class="content-section">
-    <h2 class="content-section-title">Expériences Professionnelles</h2>
-    <div class="experience-item">
-      <div class="experience-header"><h3 class="experience-title">Stage de Terminale</h3><span class="experience-date">2025 - 2026</span></div>
-      <p class="experience-company">Neoviz Group</p>
-      <p class="experience-duration">⏱ Durée : 6 semaines</p>
-      <p class="experience-description">Stage en développement logiciel au sein d'une entreprise spécialisée dans les solutions numériques. J'ai participé à la conception d'interfaces utilisateur et au développement de fonctionnalités backend, tout en travaillant sur la gestion de bases de données en équipe.</p>
-    </div>
-    <div class="experience-item">
-      <div class="experience-header"><h3 class="experience-title">Stage de Première</h3><span class="experience-date">2024 - 2025</span></div>
-      <p class="experience-company">Bobcat France</p>
-      <p class="experience-duration">⏱ Durée : 8 semaines</p>
-      <p class="experience-description">Stage au sein du service informatique industriel. J'ai contribué au déploiement d'un système MES (Manufacturing Execution System) : installation, configuration et tests sur le terrain, en lien avec les équipes de production. J'ai également documenté les procédures mises en place.</p>
-    </div>
-    <div class="experience-item">
-      <div class="experience-header"><h3 class="experience-title">Stage de Seconde</h3><span class="experience-date">2023 - 2024</span></div>
-      <p class="experience-company">Horizon Informatique</p>
-      <p class="experience-duration">⏱ Durée : 6 semaines</p>
-      <p class="experience-description">Montage et réparation d'ordinateurs, diagnostics matériels et logiciels, réinstallation de systèmes d'exploitation. Contact direct avec les clients pour résoudre leurs problèmes techniques. Cette expérience m'a appris la rigueur dans le dépannage et l'importance de la relation client.</p>
-    </div>
-    <div class="experience-item">
-      <div class="experience-header"><h3 class="experience-title">Stage d'observation</h3><span class="experience-date">2022</span></div>
-      <p class="experience-company">Société LEGAVE - Plomberie, Pontchâteau 44</p>
-      <p class="experience-description">Découverte du milieu professionnel. Apprentissage de la rigueur, respect des consignes de sécurité dans un environnement de travail technique.</p>
-    </div>
-  </section>
-</main>
+  </aside>
+
+  <main class="main-content">
+    <header class="header">
+      <h1 class="main-title">Recherche d'alternance - BTS CIEL</h1>
+      <p class="tagline">Cybersécurité, Informatique et réseaux, Électronique</p>
+    </header>
+
+    <section class="content-section">
+      <h2 class="content-section-title">Compétences Techniques</h2>
+      <div class="skills-content">
+        <div class="skills-column"><h4>Développement</h4><ul><li>Applications web (HTML/CSS/JS)</li><li>Python / Programmation</li><li>Bases de données (SQL)</li><li>Interfaces utilisateur</li></ul></div>
+        <div class="skills-column"><h4>Systèmes & Réseaux</h4><ul><li>Gestion de projets IT</li><li>Systèmes industriels (MES)</li><li>Administration systèmes</li><li>Réseaux informatiques</li></ul></div>
+        <div class="skills-column"><h4>Hardware & Support</h4><ul><li>Montage / réparation PC</li><li>Maintenance matérielle</li><li>Diagnostic logiciel</li><li>Support technique</li><li>Électronique</li></ul></div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="content-section-title">Formation</h2>
+      <div class="education-item">
+        <h3 class="education-title">Baccalauréat Professionnel CIEL</h3>
+        <p class="education-school">Cybersécurité, Informatique et réseaux, Électronique</p>
+        <p class="education-date">En cours - Terminale</p>
+      </div>
+      <div class="education-item">
+        <h3 class="education-title">Brevet des Collèges (DNB)</h3>
+        <p class="education-school">Diplôme National du Brevet</p>
+        <p class="education-date">Obtenu en 2023</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="content-section-title">Expériences Professionnelles</h2>
+
+      <div class="experience-item">
+        <div class="experience-header"><h3 class="experience-title">Stage de Terminale</h3><span class="experience-date">2025 - 2026</span></div>
+        <p class="experience-company">Neoviz Group</p>
+        <p class="experience-duration">⏱ Durée : 6 semaines</p>
+        <p class="experience-description">Stage en développement logiciel au sein d'une entreprise spécialisée dans les solutions numériques. Participation à la conception d'interfaces utilisateur (HTML/CSS/JS) et au développement de fonctionnalités backend. Travail en équipe sur la gestion et la structuration de bases de données. Utilisation d'outils de versioning et respect des bonnes pratiques de développement.</p>
+        <div class="experience-tags">
+          <span class="exp-tag">HTML/CSS/JS</span>
+          <span class="exp-tag">Backend</span>
+          <span class="exp-tag">SQL</span>
+          <span class="exp-tag">Travail en équipe</span>
+          <span class="exp-tag">Git</span>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header"><h3 class="experience-title">Stage de Première</h3><span class="experience-date">2024 - 2025</span></div>
+        <p class="experience-company">Bobcat France</p>
+        <p class="experience-duration">⏱ Durée : 8 semaines</p>
+        <p class="experience-description">Stage au sein du service informatique industriel d'un grand groupe international. Contribution active au déploiement d'un système MES (Manufacturing Execution System) : installation des postes, configuration logicielle et tests fonctionnels sur le terrain. Collaboration avec les équipes de production pour valider les process. Rédaction de la documentation technique des procédures mises en place.</p>
+        <div class="experience-tags">
+          <span class="exp-tag">MES</span>
+          <span class="exp-tag">Déploiement réseau</span>
+          <span class="exp-tag">Configuration système</span>
+          <span class="exp-tag">Documentation</span>
+          <span class="exp-tag">Environnement industriel</span>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header"><h3 class="experience-title">Stage de Seconde</h3><span class="experience-date">2023 - 2024</span></div>
+        <p class="experience-company">Horizon Informatique</p>
+        <p class="experience-duration">⏱ Durée : 6 semaines</p>
+        <p class="experience-description">Stage en atelier informatique orienté maintenance et support technique. Montage et réparation d'ordinateurs fixes et portables, diagnostics matériels et logiciels, réinstallation de systèmes d'exploitation (Windows). Accueil et relation directe avec les clients pour identifier et résoudre leurs problèmes techniques. Apprentissage de la rigueur dans le dépannage et de l'importance de la satisfaction client.</p>
+        <div class="experience-tags">
+          <span class="exp-tag">Maintenance PC</span>
+          <span class="exp-tag">Diagnostic matériel</span>
+          <span class="exp-tag">Windows</span>
+          <span class="exp-tag">Relation client</span>
+          <span class="exp-tag">Support technique</span>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header"><h3 class="experience-title">Stage d'observation</h3><span class="experience-date">2022</span></div>
+        <p class="experience-company">Société LEGAVE - Plomberie, Pontchâteau 44</p>
+        <p class="experience-description">Première découverte du monde professionnel. Observation des métiers techniques, apprentissage de la rigueur, du respect des consignes de sécurité et de l'organisation du travail en équipe dans un environnement technique exigeant.</p>
+        <div class="experience-tags">
+          <span class="exp-tag">Environnement technique</span>
+          <span class="exp-tag">Sécurité</span>
+          <span class="exp-tag">Travail en équipe</span>
+        </div>
+      </div>
+
+    </section>
+  </main>
 </div>
 </body>
 </html>
